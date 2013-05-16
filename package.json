@@ -1,0 +1,32 @@
+{
+  "name": "kvstore",
+  "version": "0.0.0",
+  "description": "A key/value api",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha -R spec --recursive",
+    "start": "NODE_ENV=local node index.js"
+  },
+  "repository": "",
+  "license": "MPL 2.0",
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "hoek": "0.9.1"
+  },
+  "devDependencies": {
+    "mocha": "1.9.x",
+    "jshint": "0.9.1",
+    "convict": "0.1.0"
+  },
+  "optionalDependencies": {
+    "mysql": "0.9.5",
+    "memcached": "0.2.2",
+    "aws-sdk": "1.1.0"
+  }
+}
