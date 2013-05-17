@@ -1,0 +1,26 @@
+language: node_js
+
+node_js:
+ - 0.10
+ - 0.8
+
+notifications:
+  email:
+    - dcoates@mozilla.com
+  irc:
+    channels:
+      - "irc.mozilla.org#picl"
+    use_notice: false
+    skip_join: false
+
+services:
+  - memcached
+
+env:
+  - KVSTORE_BACKEND=mysql
+  - KVSTORE_BACKEND=memory
+  - KVSTORE_BACKEND=memcached
+
+before_script:
+  - "mysql -e 'DROP DATABASE IF EXISTS test;'"
+  - "mysql -e 'CREATE DATABASE test;'"
