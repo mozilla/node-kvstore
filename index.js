@@ -68,9 +68,9 @@
 
 var Hoek = require('hoek');
 
-module.exports = function (config) {
+module.exports = function (options) {
   // The set of default options to use for new db connections in this process.
-  var DEFAULT_OPTIONS = config.get('kvstore');
+  var DEFAULT_OPTIONS = options;
 
   // The set of available backend names.
   // This will be populated with the loaded sub-modules on demand.
