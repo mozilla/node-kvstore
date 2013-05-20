@@ -68,9 +68,9 @@
 
 var Hoek = require('hoek');
 
-module.exports = function (options) {
+module.exports = function (config) {
   // The set of default options to use for new db connections in this process.
-  var DEFAULT_OPTIONS = options;
+  var DEFAULT_OPTIONS = config.kvstore;
 
   // The set of available backend names.
   // This will be populated with the loaded sub-modules on demand.
@@ -87,11 +87,11 @@ module.exports = function (options) {
       // Load the specified backend implementation
       // if it's not already available.
       var backend = AVAILABLE_BACKENDS[options.backend];
-      if(backend === undefined) {
+      if (backend === undefined) {
           cb("invalid kvstore backend: " + backend);
           return;
       }
-      if(backend === null) {
+      if (backend === null) {
           backend = require("./lib/" + options.backend + ".js");
           AVAILABLE_BACKENDS[options.backend] = backend;
       }
@@ -103,8 +103,8 @@ module.exports = function (options) {
 
       // Connect via the backend implementation, and have it unblock
       // the proxy object upon completion.
-      if (config.has(options.backend)) {
-        options = Hoek.merge(options, config.get(options.backend));
+      if (options.backend in config) {
+        options = Hoek.merge(options, config[options.backend]);
       }
       backend.connect(options, function(err, db) {
         proxy._unblock(err, db);
