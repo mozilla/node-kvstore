@@ -31,6 +31,12 @@ describe('kvstore', function () {
     });
   });
 
+  it('can ping', function (done) {
+    db.get("test-key", function () {
+      db.ping(done);
+    });
+  });
+
   it('supports atomic check-and-set', function (done) {
     db.set("test-key", "VALUE", function(err) {
       assert.equal(err, null);
