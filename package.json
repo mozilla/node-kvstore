@@ -22,7 +22,7 @@
   "devDependencies": {
     "mocha": "1.9.x",
     "jshint": "0.9.1",
-    "convict": "0.1.0"
+    "convict": "0.1.1"
   },
   "optionalDependencies": {
     "mysql": "0.9.5",

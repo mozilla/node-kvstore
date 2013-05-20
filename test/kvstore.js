@@ -1,7 +1,7 @@
 var assert = require('assert');
 var config = require('./config');
 var errors = require('../errors');
-var kvstore = require('../index')(config.get(null));
+var kvstore = require('../index')(config.root());
 
 describe('kvstore', function () {
 
