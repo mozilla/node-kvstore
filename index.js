@@ -66,7 +66,8 @@
  *
  */
 
-var Hoek = require('hoek');
+const Hoek = require('hoek');
+const errors = require('./errors');
 
 module.exports = function (config) {
   // The set of default options to use for new db connections in this process.
@@ -81,6 +82,7 @@ module.exports = function (config) {
     }, {});
 
   return {
+    errors: errors,
     connect: function(options) {
       options = Hoek.applyToDefaults(DEFAULT_OPTIONS.kvstore, options || {});
 

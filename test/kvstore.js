@@ -1,6 +1,5 @@
 var assert = require('assert');
 var config = require('./config');
-var errors = require('../errors');
 var kvstore = require('../index')(config.root());
 
 describe('kvstore', function () {
@@ -45,7 +44,7 @@ describe('kvstore', function () {
         db.cas("test-key", "OTHER-VALUE-ONE", info.casid, function(err) {
           assert.equal(err, null);
           db.cas("test-key", "OTHER-VALUE-TWO", info.casid, function(err) {
-            assert.equal(err, errors.ERROR_CAS_MISMATCH);
+            assert.equal(err, kvstore.errors.ERROR_CAS_MISMATCH);
             db.get("test-key", function(err, info) {
               assert.equal(err, null);
               assert.equal(info.value, "OTHER-VALUE-ONE");
