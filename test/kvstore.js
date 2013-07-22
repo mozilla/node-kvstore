@@ -11,10 +11,9 @@ describe('kvstore', function () {
   });
 
   afterEach(function (done) {
-    if (config.get('kvstore.backend') === 'mysql') {
+    if (db.connection && db.connection.closeAndRemove) {
       db.connection.closeAndRemove(done);
-    }
-    else {
+    } else {
       db.close(done);
     }
   });

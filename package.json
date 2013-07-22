@@ -26,6 +26,7 @@
   },
   "optionalDependencies": {
     "mysql": "0.9.5",
+    "helenus": "0.6.2",
     "memcached": "0.2.2",
     "aws-sdk": "1.1.0"
   }
