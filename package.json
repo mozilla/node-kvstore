@@ -1,6 +1,6 @@
 {
   "name": "kvstore",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A key/value api",
   "main": "index.js",
   "directories": {
