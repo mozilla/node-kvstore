@@ -5,7 +5,8 @@
 const fs = require('fs');
 const convict = require('convict');
 
-const AVAILABLE_BACKENDS = ["memory", "mysql", "memcached", "dynamodb"];
+const AVAILABLE_BACKENDS = ["memory", "mysql", "memcached", "dynamodb",
+                            "cassandra"];
 
 
 var conf = module.exports = convict({
@@ -81,7 +82,21 @@ var conf = module.exports = convict({
       default: '',
       env: 'AWS_SECRET'
     }
-  }
+  },
+  cassandra: {
+    hosts: {
+      default: ['127.0.0.1:9160'],
+      env: 'CASSANDRA_HOSTS'
+    },
+    keyspace: {
+      default: 'kvstore',
+      env: 'CASSANDRA_KEYSPACE'
+    },
+    create_schema: {
+      default: true,
+      env: 'CREATE_CASSANDRA_SCHEMA'
+    }
+  } 
 });
 
 // handle configuration files.  you can specify a CSV list of configuration
