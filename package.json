@@ -10,7 +10,13 @@
     "test": "NODE_ENV=test ./node_modules/.bin/mocha -R spec --recursive",
     "start": "NODE_ENV=local node index.js"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mozilla/node-kvstore.git"
+  },
+  "homepage": "https://github.com/mozilla/node-kvstore/",
+  "bugs": "https://github.com/mozilla/node-kvstore/issues",
+  "author": "Mozilla (https://mozilla.org/)",
   "license": "MPL 2.0",
   "readmeFilename": "README.md",
   "engines": {
